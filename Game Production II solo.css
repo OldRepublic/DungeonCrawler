@@ -9,14 +9,14 @@ WarriorTag
 RangerTag
 {
 	left: 15px;
-	top: 115px;
+	top: 115px; 
 	z-index: 1;
 	position: absolute;
 }
 MageTag
 {
 	left: 15px;
-	top: 215px;
+	top: 215px; 
 	z-index: 1;
 	position: absolute;
 }

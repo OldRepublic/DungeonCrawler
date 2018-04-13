@@ -7,23 +7,23 @@ var creatureWarriorY = 0;
 
 var creatureRanger = document.getElementById("Ranger");
 var creatureRangerX = 0;
-var creatureRangerY = 100;
+var creatureRangerY = 100; //100
 
 var creatureMage = document.getElementById("Mage");
 var creatureMageX = 0;
-var creatureMageY = 200;
+var creatureMageY = 200;//200
 
 var creatureFellBat = document.getElementById("FellBat");
-var creatureFellBatX = 1500;
-var creatureFellBatY = 400;
+var creatureFellBatX = 1500;//1500
+var creatureFellBatY = 400;//400
 
 var creatureRedGolumn = document.getElementById("RedGolumn");
-var creatureRedGolumnX = 1500;
-var creatureRedGolumnY = 300;
+var creatureRedGolumnX = 1500;//1500
+var creatureRedGolumnY = 300;//300
 
 var creatureNatureWisp = document.getElementById("NatureWisp");
-var creatureNatureWispX = 1500;
-var creatureNatureWispY = 500;
+var creatureNatureWispX = 1500;//1500
+var creatureNatureWispY = 500;//500
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 var leftPressed = false;
@@ -52,7 +52,7 @@ var map = [
 	[ , ]
 
 ];
-
+console.log(creatureWarrior.style.top);
 var x = 0;//used for navigation of array
 var y = 0;
 var counter = 98; //to fill screen set to 98
@@ -69,6 +69,9 @@ var CharTracker = [
 	[ , ],
 	[ , ]
 ];
+
+var FirstDownMage = 0;
+var FirstDownMageVal = 200;
 
 testMapCreation(tileX, tileY);
 
@@ -89,7 +92,7 @@ function update()
 
 function TurnOrder()
 {
-	currentTurn = Math.floor((Math.random() * 5) + 0);
+	currentTurn = Math.floor((Math.random() * 6) + 0);
 	console.log("it is " + classes[currentTurn] + " turn");
 	currentTurnName = classes[currentTurn];
 }
@@ -131,14 +134,23 @@ function onKeyUp(event)
 }
 function Movement()
 {
+	//var FirstTime = 0;
+	//if(FirstTime == 0)
+	//{
+	//	creatureRangerY += 100;
+	//	FirstTime++;
+	//}
+	
 	if(leftPressed == true)
 	{
 		console.log(currentTurn);
 		creatureReset();
 		if(currentTurnName == "Warrior")
 		{
+			
 			creatureWarriorX -= 100;
-			creatureWarrior.style.left = creatureWarriorX + "px";			
+			creatureWarrior.style.left = creatureWarriorX + "px";	
+			
 		}
 		else if(currentTurnName == "RedGolumn")
 		{
@@ -147,13 +159,15 @@ function Movement()
 		}
 		else if(currentTurnName == "Ranger")
 		{
+			
 			creatureRangerX -= 100;
 			creatureRanger.style.left = creatureRangerX + "px";
+			
 		}
 		else if(currentTurnName == "NatureWisp")
 		{
 			creatureNatureWispX -= 100;
-			creatureNatureWisp.style.left = creatureNatureWispX + "px";
+			creatureNatureWisp.style.left -= creatureNatureWispX + "px";
 		}
 		else if(currentTurnName == "Mage")
 		{
@@ -172,8 +186,10 @@ function Movement()
 		creatureReset();
 		if(currentTurnName == "Warrior")
 		{
+			
 			creatureWarriorX += 100;
 			creatureWarrior.style.left = creatureWarriorX + "px";
+			
 		}
 		else if(currentTurnName == "RedGolumn")
 		{
@@ -182,8 +198,10 @@ function Movement()
 		}
 		else if(currentTurnName == "Ranger")
 		{
+			
 			creatureRangerX += 100;
 			creatureRanger.style.left = creatureRangerX + "px";
+			
 		}
 		else if(currentTurnName == "NatureWisp")
 		{
@@ -207,8 +225,10 @@ function Movement()
 		creatureReset();
 		if(currentTurnName == "Warrior")
 		{
+			
 			creatureWarriorY -= 100;
 			creatureWarrior.style.top = creatureWarriorY + "px";
+			
 		}
 		else if(currentTurnName == "RedGolumn")
 		{
@@ -216,9 +236,10 @@ function Movement()
 			creatureRedGolumn.style.top = creatureRedGolumnY + "px";
 		}
 		else if(currentTurnName == "Ranger")
-		{
+		{		
 			creatureRangerY -= 100;
 			creatureRanger.style.top = creatureRangerY + "px";
+		
 		}
 		else if(currentTurnName == "NatureWisp")
 		{
@@ -239,11 +260,14 @@ function Movement()
 	}
 	if(downPressed == true)
 	{	
+
 		creatureReset();
 		if(currentTurnName == "Warrior")
 		{
+			
 			creatureWarriorY += 100;
 			creatureWarrior.style.top = creatureWarriorY + "px";
+			
 		}
 		else if(currentTurnName == "RedGolumn")
 		{
@@ -252,8 +276,10 @@ function Movement()
 		}
 		else if(currentTurnName == "Ranger")
 		{
+			
 			creatureRangerY += 100;
 			creatureRanger.style.top = creatureRangerY + "px";
+			
 		}
 		else if(currentTurnName == "NatureWisp")
 		{
@@ -262,8 +288,18 @@ function Movement()
 		}
 		else if(currentTurnName == "Mage")
 		{
+			if(FirstDownMage == 0)
+			{
+			creatureMageY -= 100;
+			creatureMage.style.top = creatureMageY + "px";
+			FirstDownMage = 1;
+			console.log(FirstDownMage);
+			}
+			else if(FirstDownMage != 0)
+			{
 			creatureMageY += 100;
 			creatureMage.style.top = creatureMageY + "px";
+			}
 		}
 		else if(currentTurnName == "FellBat")
 		{
@@ -271,10 +307,8 @@ function Movement()
 			creatureFellBat.style.top = creatureFellBatY + "px";
 		}
 		creaturePosition();
-		console.log("This is mage x" + creatureMageX);
-		console.log("This is mage y" + creatureMageY);
+
 	}
-	
 }	
 	//ctx.drawImage(Warrior, WarriorX, WarriorY, 90, 90);
 function testMapCreation(tileX, tileY)
