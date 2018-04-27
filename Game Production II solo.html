@@ -8,7 +8,7 @@
 
 	<canvas id = "gameCanvas" width = "1600" height = "700">
 	</canvas>
-	
+<RunTime id = "DuringGame">	
 	<WarriorTag>
 	<img class = "sprite" id = "PWarrior" src ="C:/Users/Elijah/Documents/GitHub/DungeonCrawler/Player pic.jpe" width = 90px height = 90px>
 	</WarriorTag>
@@ -32,8 +32,29 @@
 	<img class = "sprite" id = "RedRock" src ="C:/Users/Elijah/Documents/GitHub/DungeonCrawler/RedRock.jpg" width = 90px height = 90px>
 
 	<img class = "sprite" id = "Grass" src ="C:/Users/Elijah/Documents/GitHub/DungeonCrawler/Grass.jpg" width = 90px height = 90px>
+	<EndTurn id = "EndingTurn"><button id = "pass" onclick = "TurnOrder()">End Turn</button></EndTurn>
+</RunTime>
     <!--do the GUI thing for this-->
-	<button id = "EndTurn" onclick = "TurnOrder()">End Turn</button>
+	<MainMenuUI id = "UI">
+	<launch id = "SetupGame"><button id = "begin" onclick = "testMapCreation(tileX, tileY)">Play Game</button></launch>
+	<Setting id = "Setins"><button id = "changes" onclick = "Settings()">Settings</button></Setting>
+	<Exit id = "Leave"><button id = "finish">Quit Game</button></Exit>
+	</MainMenuUI>
+	
+	<options id = "customization">
+	<sound id = "listen"><button id = "hear">Sound</button></sound>
+	<graphics id = "looks"><button id = "visuals">Graphics</button></graphics>
+	<controls id = "inputs"><button id = "input">Controls</button></controls>
+	<back id = "backtomain"><button id = "return" onclick = "mainMenu()">To Main Menu</button></back>
+	</options>
+	
+	<button id = "fighting">Attack</button>
+	
+	<button id = "RageBlow">RagingBlow</button>
+	
+	<button id = "Target1" onclick = "Warrior.ragingBlow(Warrior, FellBat)">Attack: FellBat</button><!--this actually works-->
+	<button id = "Target2" onclick = "Warrior.ragingBlow(Warrior, RedGolumn)">Attack: RedGolumn</button>
+	<button id = "Target3" onclick = "Warrior.ragingBlow(Warrior, NatureWisp)">Attack: NatureWisp</button>
 	    <script src = "Game Production II solo.js">
 
 	</script>

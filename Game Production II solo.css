@@ -45,3 +45,64 @@ NatureWispTag
 {
 	position: absolute;
 }
+EndTurn
+{
+	left: 400px;
+	top: 650px;
+	z-index: 1;
+	position: absolute;
+}
+RunTime{}
+
+launch
+{
+	left: 800px;
+	top: 200px;
+	z-index: 1;
+	position: absolute;
+}
+Setting
+{
+	left: 800px;
+	top: 250px;
+	z-index: 1;
+	position: absolute;
+}
+Exit
+{
+	left: 800px;
+	top:300px;
+	z-index: 1;
+	position: absolute;
+}
+MainMenuUI{}
+
+sound
+{
+	left: 800px;
+	top:200px;
+	z-index: 1;
+	position: absolute;
+}
+graphics
+{
+	left: 800px;
+	top:250px;
+	z-index: 1;
+	position: absolute;
+}
+controls
+{
+	left: 800px;
+	top:300px;
+	z-index: 1;
+	position: absolute;
+}
+back
+{
+	left: 800px;
+	top:350px;
+	z-index: 1;
+	position: absolute;
+}
+options{}
